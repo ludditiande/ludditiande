@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+=====================================================================
+=== Copyright (c) 1988-2021 $organization$
+===
+=== This software is provided by the author and contributors ``as is'' 
+=== and any express or implied warranties, including, but not limited to, 
+=== the implied warranties of merchantability and fitness for a particular 
+=== purpose are disclaimed. In no event shall the author or contributors 
+=== be liable for any direct, indirect, incidental, special, exemplary, 
+=== or consequential damages (including, but not limited to, procurement 
+=== of substitute goods or services; loss of use, data, or profits; or 
+=== business interruption) however caused and on any theory of liability, 
+=== whether in contract, strict liability, or tort (including negligence 
+=== or otherwise) arising in any way out of the use of this software, 
+=== even if advised of the possibility of such damage.
+===
+===   File: Ludditiande-create-html-form.html
+===
+=== Author: $author$
+===   Date: 12/11/2021
+=====================================================================
+=== Application=Ludditiande Part=create-html-form
+-->
+
+<!--
+=====================================================================
+=== form
+=====================================================================
+-->
+<form name="Form" method="POST" action="/ludditiande/templates/t/html/html.t"
+ onSubmit="return setFormSubmit(getFormValue2('FormTemplate','FormAction','Form'),getFormValue('FormMethod','Form'),'Form')">
+    <div class="form">
+
+    File: <input name="File" value=""></input>[html][.html]
+    <input type="radio" name="Extension" value="xhtml" unchecked="checked">.xhtml</input>
+    <input type="radio" name="Extension" value="html" checked="checked">.html</input>
+    <input type="radio" name="Extension" value="htm" unchecked="checked">.htm</input>
+    <input type="radio" name="Extension" value="" unchecked="">no</input>
+    <input type="checkbox" name="is_File" value="no" unchecked="checked">no</input>
+    <br/>
+
+    Template: <select name="FormTemplate">
+    <option value="/ludditiande/templates/t/html/html.t">.html file (/ludditiande/templates/t/html/html.t)</option>
+    <option value=""></option>
+    <option value="/ludditiande/templates/t/html/Application-part-html.t">Application part .html file (/ludditiande/templates/t/html/Application-part-html.t)</option>
+    <option value="/ludditiande/templates/t/html/Application-menubar-html.t">Application menubar .html file (/ludditiande/templates/t/html/Application-menubar-html.t)</option>
+    <option value="/ludditiande/templates/t/html/Application-form-html.t">Application form .html file (/ludditiande/templates/t/html/Application-form-html.t)</option>
+    <option value=""></option>
+    <option value="/ludditiande/templates/t/html/Application-page-html.t">Application page .html file (/ludditiande/templates/t/html/Application-page-html.t)</option>
+    <option value="/ludditiande/templates/t/html/Application-create-html.t">Application create .html file (/ludditiande/templates/t/html/Application-create-html.t)</option>
+    <option value=""></option>
+    <option value="/ludditiande/templates/t/t/parameters.t">t parameters &nbsp;&nbsp; (/ludditiande/templates/t/t/parameters.t)</option>
+    <option value="/ludditiande/templates/t/t/functions.t">t functions &nbsp;&nbsp; (/ludditiande/templates/t/t/functions.t)</option>
+    <option value=""></option>
+    <option value="/ludditiande-cgi/cgi">cgi parameters &nbsp;&nbsp; (/ludditiande-cgi/cgi)</option>
+    <option value="/ludditiande-cgi/cgicatch">catch cgi parameters &nbsp;&nbsp; (/ludditiande-cgi/cgicatch)</option>
+    <option value=""/>
+    </select>
+    <br/>
+
+    <br/>
+    Application:<input name="Application" value=""></input>[]
+    <input type="checkbox" name="is_Application" value="no" unchecked="checked">no</input>
+    <br/>
+    Page:<input name="Page" value=""></input>[%if(%Application%,%else-then(%DoThing%,Home)%)%]
+    <input type="checkbox" name="is_Page" value="no" unchecked="checked">no</input>
+    <br/>
+    Part:<input name="Part" value=""></input>[%else-then(%dowhat%,%page%)%]
+    <input type="checkbox" name="is_Part" value="no" unchecked="checked">no</input>
+    <br/>
+    Do:<input name="Do" value=""></input>[]
+    <input type="checkbox" name="is_Do" value="no" unchecked="checked">no</input>
+    <br/>
+    What:<input name="What" value=""></input>[]
+    <input type="checkbox" name="is_What" value="no" unchecked="checked">no</input>
+    <br/>
+    Which:<input name="Which" value=""></input>[]
+    <input type="checkbox" name="is_Which" value="no" unchecked="checked">no</input>
+    <br/>
+    Thing:<input name="Thing" value=""></input>[]
+    <input type="checkbox" name="is_Thing" value="no" unchecked="checked">no</input>
+    <br/>
+
+    <br/>
+    <b></b><input name="Inputs_label" value=""></input><b>:</b>
+    <input type="checkbox" name="is_Inputs_label" value="no" unchecked="checked">no</input>
+    <b>&lt;input&nbsp;&nbsp;name="</b><input name="Inputs" value=""></input><b>=value;..."</b>
+    <input type="checkbox" name="is_Inputs" value="no" unchecked="checked">no</input>
+    <b>&nbsp;&nbsp;value="</b><input name="InputValue" value=""></input><b>"</b>
+    <input type="checkbox" name="is_InputValue" value="no" unchecked="checked">no</input>
+    <b>&lt;/input&gt;</b><br/>
+
+    <br/>
+    Organization:<input name="Organization" value=""></input>[$organization$]
+    <input type="checkbox" name="is_Organization" value="no" unchecked="checked">no</input>
+    <br/>
+    Author:<input name="Author" value=""></input>[$author$]
+    <input type="checkbox" name="is_Author" value="no" unchecked="checked">no</input>
+    <br/>
+    Date:<input name="Date" value=""/>[%date()%]<b></b>
+    <input type="checkbox" name="is_Date" value="no" unchecked="checked">no</input>
+    <br/>
+    Year:<input name="Year" value=""/>[%year()%]<b></b>
+    <input type="checkbox" name="is_Year" value="no" unchecked="checked">no</input>
+    <br/>
+
+    <br/>
+    Content-Type: <select name="content_type">
+    <option value="text/plain">text</option>
+    <option value="text/html">html</option>
+    <option value="text/xml">xml</option>
+    <option value="application/json">json</option>
+    <option value="application/javascript">javascript</option>
+    <option value=""></option>
+    </select>
+    <br/>
+    Action: <select name="FormAction">
+    <option value="/ludditiande/templates/t/html/html.t">.html file (/ludditiande/templates/t/html/html.t)</option>
+    <option value=""></option>
+    <option value="/ludditiande/templates/t/t/parameters.t">t parameters &nbsp;&nbsp; (/ludditiande/templates/t/t/parameters.t)</option>
+    <option value="/ludditiande/templates/t/t/functions.t">t functions &nbsp;&nbsp; (/ludditiande/templates/t/t/functions.t)</option>
+    <option value=""></option>
+    <option value="/ludditiande-cgi/cgi">cgi parameters &nbsp;&nbsp; (/ludditiande-cgi/cgi)</option>
+    <option value="/ludditiande-cgi/cgicatch">catch cgi parameters &nbsp;&nbsp; (/ludditiande-cgi/cgicatch)</option>
+    <option value=""/>
+    </select>
+    <br/>
+    Method: <select name="FormMethod">
+    <option value="POST">POST</option>
+    <option value="GET">GET</option>
+    <option value=""></option>
+    </select>
+    <br/>
+    <br/>
+    <input type="submit" name="submit" value="submit"/><br/>
+    </div>
+</form>

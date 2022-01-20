@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 =====================================================================
-=== Copyright (c) 1988-2021 $organization$
+=== Copyright (c) 1988-2022 $organization$
 ===
 === This software is provided by the author and contributors ``as is'' 
 === and any express or implied warranties, including, but not limited to, 
@@ -15,12 +15,12 @@
 === or otherwise) arising in any way out of the use of this software, 
 === even if advised of the possibility of such damage.
 ===
-===   File: Ludditiande-create-html-form.html
+===   File: Ludditiande-create-cpp-form.html
 ===
 === Author: $author$
-===   Date: 12/11/2021
+===   Date: 1/3/2022
 =====================================================================
-=== Application=Ludditiande Part=create-html-form
+=== Application=Ludditiande Page=Create c/c++ file Part=create-cpp-form
 -->
 
 <!--
@@ -28,27 +28,27 @@
 === form
 =====================================================================
 -->
-<form name="Form" method="POST" action="/ludditiande/templates/t/html/html.t"
+<form name="Form" method="POST" action="/xthenode/templates/t/cxx/hxx-cxx.t"
  onSubmit="return setFormSubmit(getFormValue2('FormTemplate','FormAction','Form'),getFormValue('FormMethod','Form'),'Form')">
     <div class="form">
 
-    File: <input name="File" value=""></input>[html][.html]
-    <input type="radio" name="Extension" value="xhtml" unchecked="checked">.xhtml</input>
-    <input type="radio" name="Extension" value="html" checked="checked">.html</input>
-    <input type="radio" name="Extension" value="htm" unchecked="checked">.htm</input>
+    File: <input name="File" value=""></input>[hpp][.hpp]
+    <input type="radio" name="Extension" value="hpp" checked="checked">.hpp</input>
+    <input type="radio" name="Extension" value="cpp" unchecked="checked">.cpp</input>
+    <input type="radio" name="Extension" value="hxx" uchecked="checked">.hxx</input>
+    <input type="radio" name="Extension" value="cxx" unchecked="checked">.cxx</input>
+    <input type="radio" name="Extension" value="hh" unchecked="checked">.hh</input>
+    <input type="radio" name="Extension" value="cc" unchecked="checked">.cc</input>
+    <input type="radio" name="Extension" value="mm" unchecked="checked">.mm</input>
+    <input type="radio" name="Extension" value="h" unchecked="checked">.h</input>
+    <input type="radio" name="Extension" value="c" unchecked="checked">.c</input>
+    <input type="radio" name="Extension" value="m" unchecked="checked">.m</input>
     <input type="radio" name="Extension" value="" unchecked="">no</input>
     <input type="checkbox" name="is_File" value="no" unchecked="checked">no</input>
     <br/>
 
     Template: <select name="FormTemplate">
-    <option value="/ludditiande/templates/t/html/html.t">.html file (/ludditiande/templates/t/html/html.t)</option>
-    <option value=""></option>
-    <option value="/ludditiande/templates/t/html/Application-part-html.t">Application part .html file (/ludditiande/templates/t/html/Application-part-html.t)</option>
-    <option value="/ludditiande/templates/t/html/Application-menubar-html.t">Application menubar .html file (/ludditiande/templates/t/html/Application-menubar-html.t)</option>
-    <option value="/ludditiande/templates/t/html/Application-form-html.t">Application form .html file (/ludditiande/templates/t/html/Application-form-html.t)</option>
-    <option value=""></option>
-    <option value="/ludditiande/templates/t/html/Application-page-html.t">Application page .html file (/ludditiande/templates/t/html/Application-page-html.t)</option>
-    <option value="/ludditiande/templates/t/html/Application-create-html.t">Application create .html file (/ludditiande/templates/t/html/Application-create-html.t)</option>
+    <option value="/xthenode/templates/t/cxx/hxx-cxx.t">c/c++ file (/xthenode/templates/t/cxx/hxx-cxx.t)</option>
     <option value=""></option>
     <option value="/ludditiande/templates/t/t/parameters.t">t parameters &nbsp;&nbsp; (/ludditiande/templates/t/t/parameters.t)</option>
     <option value="/ludditiande/templates/t/t/functions.t">t functions &nbsp;&nbsp; (/ludditiande/templates/t/t/functions.t)</option>
@@ -60,45 +60,24 @@
     <br/>
 
     <br/>
-    Application:<input name="Application" value=""></input>[]
-    <input type="checkbox" name="is_Application" value="no" unchecked="checked">no</input>
-    <br/>
-    Page:<input name="Page" value=""></input>[%if(%Application%,%else-then(%DoThing%,Home)%)%]
-    <input type="checkbox" name="is_Page" value="no" unchecked="checked">no</input>
-    <br/>
-    Part:<input name="Part" value=""></input>[%else-then(%dowhat%,%page%)%]
-    <input type="checkbox" name="is_Part" value="no" unchecked="checked">no</input>
-    <br/>
-    Do:<input name="Do" value=""></input>[]
-    <input type="checkbox" name="is_Do" value="no" unchecked="checked">no</input>
-    <br/>
-    What:<input name="What" value=""></input>[]
-    <input type="checkbox" name="is_What" value="no" unchecked="checked">no</input>
-    <br/>
-    Which:<input name="Which" value=""></input>[]
-    <input type="checkbox" name="is_Which" value="no" unchecked="checked">no</input>
-    <br/>
-    Thing:<input name="Thing" value=""></input>[]
-    <input type="checkbox" name="is_Thing" value="no" unchecked="checked">no</input>
+    <b>#ifndef </b>
+    <input type="checkbox" name="File_ifndef_define_prefix" value="_" unchecked=""/>
+    <b>_</b><input name="File_ifndef" value=""/><b>_</b>
+    <input type="checkbox" name="File_ifndef_define_suffix" value="_" unchecked=""/>[%Namespace%]
+    <input type="checkbox" name="is_File_ifndef" value="no" unchecked=""/>no
     <br/>
 
+    <b>#include "</b><input name="Include" value=""/><b>"</b>[xos/base/base][.%Extension%]
+    <input type="checkbox" name="is_Include" value="no" unchecked=""/>no<br/>
+    <b>#include &lt;</b><input name="Sys_include" value=""/><b>&gt;</b>[string]
+    <input type="checkbox" name="is_Sys_include" value="no" checked="checked"/>no<br/>
     <br/>
-    <b>&lt;form&nbsp;&nbsp;name=""&nbsp;&nbsp;method=""&nbsp;&nbsp;action="</b>
-    <b>/</b><input name="Action_path" value=""></input><b>/</b>
-    <b></b><input name="Action_type" value=""></input><b>/</b>
-    <b></b><input name="Action_base" value=""></input><b>.</b>
-    <b></b><input name="Action_extension" value=""></input><b></b>
-    <b>"&gt;</b>
+
+    <b>namespace</b> <input name="Namespace" value=""/>[xos] <b>{</b>
+    <input type="checkbox" name="is_Namespace" value="no" unchecked=""/>no
     <br/>
-    <b></b><input name="Inputs_label" value=""></input><b>:</b>
-    <input type="checkbox" name="is_Inputs_label" value="no" unchecked="checked">no</input>
-    <b>&lt;input&nbsp;&nbsp;name="</b><input name="Inputs" value=""></input><b>=value;..."</b>
-    <input type="checkbox" name="is_Inputs" value="no" unchecked="checked">no</input>
-    <b>&nbsp;&nbsp;value="</b><input name="InputValue" value=""></input><b>"</b>
-    <input type="checkbox" name="is_InputValue" value="no" unchecked="checked">no</input>
-    <b>&lt;/input&gt;</b>
-    <br/>
-    <b>&lt;/form&gt;</b>
+
+    <b>} /// namespace</b>
     <br/>
 
     <br/>
@@ -133,7 +112,7 @@
     </select>
     <br/>
     Action: <select name="FormAction">
-    <option value="/ludditiande/templates/t/html/html.t">.html file (/ludditiande/templates/t/html/html.t)</option>
+    <option value="/xthenode/templates/t/cxx/hxx-cxx.t">c/c++ file (/xthenode/templates/t/cxx/hxx-cxx.t)</option>
     <option value=""></option>
     <option value="/ludditiande/templates/t/t/parameters.t">t parameters &nbsp;&nbsp; (/ludditiande/templates/t/t/parameters.t)</option>
     <option value="/ludditiande/templates/t/t/functions.t">t functions &nbsp;&nbsp; (/ludditiande/templates/t/t/functions.t)</option>

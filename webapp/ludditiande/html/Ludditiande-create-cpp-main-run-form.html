@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 =====================================================================
-=== Copyright (c) 1988-2021 $organization$
+=== Copyright (c) 1988-2022 $organization$
 ===
 === This software is provided by the author and contributors ``as is'' 
 === and any express or implied warranties, including, but not limited to, 
@@ -15,12 +15,12 @@
 === or otherwise) arising in any way out of the use of this software, 
 === even if advised of the possibility of such damage.
 ===
-===   File: Ludditiande-create-html-form.html
+===   File: Ludditiande-create-cpp-main-run-form.html
 ===
 === Author: $author$
-===   Date: 12/11/2021
+===   Date: 1/3/2022
 =====================================================================
-=== Application=Ludditiande Part=create-html-form
+=== Application=Ludditiande Page=Create c++ main run Part=create-cpp-main-run-form
 -->
 
 <!--
@@ -28,27 +28,19 @@
 === form
 =====================================================================
 -->
-<form name="Form" method="POST" action="/ludditiande/templates/t/html/html.t"
+<form name="Form" method="POST" action="/ludditiande/templates/t/cxx/xos-app-console-main-which-run-hpp.t"
  onSubmit="return setFormSubmit(getFormValue2('FormTemplate','FormAction','Form'),getFormValue('FormMethod','Form'),'Form')">
     <div class="form">
 
-    File: <input name="File" value=""></input>[html][.html]
-    <input type="radio" name="Extension" value="xhtml" unchecked="checked">.xhtml</input>
-    <input type="radio" name="Extension" value="html" checked="checked">.html</input>
-    <input type="radio" name="Extension" value="htm" unchecked="checked">.htm</input>
+    File: <input name="File" value=""></input>[{ main_opt | main }][{ .hpp | .h }]
+    <input type="radio" name="Extension" value="hpp" unchecked="checked">.hpp</input>
+    <input type="radio" name="Extension" value="h" unchecked="checked">.h</input>
     <input type="radio" name="Extension" value="" unchecked="">no</input>
     <input type="checkbox" name="is_File" value="no" unchecked="checked">no</input>
     <br/>
 
     Template: <select name="FormTemplate">
-    <option value="/ludditiande/templates/t/html/html.t">.html file (/ludditiande/templates/t/html/html.t)</option>
-    <option value=""></option>
-    <option value="/ludditiande/templates/t/html/Application-part-html.t">Application part .html file (/ludditiande/templates/t/html/Application-part-html.t)</option>
-    <option value="/ludditiande/templates/t/html/Application-menubar-html.t">Application menubar .html file (/ludditiande/templates/t/html/Application-menubar-html.t)</option>
-    <option value="/ludditiande/templates/t/html/Application-form-html.t">Application form .html file (/ludditiande/templates/t/html/Application-form-html.t)</option>
-    <option value=""></option>
-    <option value="/ludditiande/templates/t/html/Application-page-html.t">Application page .html file (/ludditiande/templates/t/html/Application-page-html.t)</option>
-    <option value="/ludditiande/templates/t/html/Application-create-html.t">Application create .html file (/ludditiande/templates/t/html/Application-create-html.t)</option>
+    <option value="/ludditiande/templates/t/cxx/xos-app-console-main-which-run-hpp.t">c++ main run .hpp file (/ludditiande/templates/t/cxx/xos-app-console-main-which-run-hpp.t)</option>
     <option value=""></option>
     <option value="/ludditiande/templates/t/t/parameters.t">t parameters &nbsp;&nbsp; (/ludditiande/templates/t/t/parameters.t)</option>
     <option value="/ludditiande/templates/t/t/functions.t">t functions &nbsp;&nbsp; (/ludditiande/templates/t/t/functions.t)</option>
@@ -60,45 +52,75 @@
     <br/>
 
     <br/>
-    Application:<input name="Application" value=""></input>[]
-    <input type="checkbox" name="is_Application" value="no" unchecked="checked">no</input>
+    <b>class </b><select name="Class">
+    <option value="main">main</option>
+    <option value="main_opt">main_opt</option>
+    <option value=""></option>
+    </select>[main]
+    <input type="checkbox" name="is_Class" value="no" unchecked="checked">no</input>
+    <b>...{</b>
     <br/>
-    Page:<input name="Page" value=""></input>[%if(%Application%,%else-then(%DoThing%,Home)%)%]
-    <input type="checkbox" name="is_Page" value="no" unchecked="checked">no</input>
-    <br/>
-    Part:<input name="Part" value=""></input>[%else-then(%dowhat%,%page%)%]
-    <input type="checkbox" name="is_Part" value="no" unchecked="checked">no</input>
-    <br/>
-    Do:<input name="Do" value=""></input>[]
-    <input type="checkbox" name="is_Do" value="no" unchecked="checked">no</input>
-    <br/>
-    What:<input name="What" value=""></input>[]
-    <input type="checkbox" name="is_What" value="no" unchecked="checked">no</input>
-    <br/>
-    Which:<input name="Which" value=""></input>[]
-    <input type="checkbox" name="is_Which" value="no" unchecked="checked">no</input>
-    <br/>
-    Thing:<input name="Thing" value=""></input>[]
-    <input type="checkbox" name="is_Thing" value="no" unchecked="checked">no</input>
+    <b>...</b>
     <br/>
 
+    <b>virtual </b><input name="ReturnType" value="int"/>
+    <input name="Which" value="this"/>
+    <input type="checkbox" name="is_Which" value="no" unchecked="checked">no</input>
+    <b>_</b><input name="Run" value="run"/>
+    <b>(derives::*_)</b><input type="checkbox" name="is_Derives_run" value="no" checked="checked">no</input>
+    <input type="checkbox" name="is_Run" value="no" unchecked="checked">no</input>
     <br/>
-    <b>&lt;form&nbsp;&nbsp;name=""&nbsp;&nbsp;method=""&nbsp;&nbsp;action="</b>
-    <b>/</b><input name="Action_path" value=""></input><b>/</b>
-    <b></b><input name="Action_type" value=""></input><b>/</b>
-    <b></b><input name="Action_base" value=""></input><b>.</b>
-    <b></b><input name="Action_extension" value=""></input><b></b>
-    <b>"&gt;</b>
+
+    <b>(</b>Params: <input name="Params" value=""/>
+    <input type="checkbox" name="is_Params" value="no" unchecked="checked">no</input><b>, </b>
+    StdParams: <input name="StdParams" value="int argc, char_t** argv, char_t** env"/>
+    <input type="checkbox" name="is_StdParams" value="no" unchecked="checked">no</input><b>) {</b>
     <br/>
-    <b></b><input name="Inputs_label" value=""></input><b>:</b>
-    <input type="checkbox" name="is_Inputs_label" value="no" unchecked="checked">no</input>
-    <b>&lt;input&nbsp;&nbsp;name="</b><input name="Inputs" value=""></input><b>=value;..."</b>
-    <input type="checkbox" name="is_Inputs" value="no" unchecked="checked">no</input>
-    <b>&nbsp;&nbsp;value="</b><input name="InputValue" value=""></input><b>"</b>
-    <input type="checkbox" name="is_InputValue" value="no" unchecked="checked">no</input>
-    <b>&lt;/input&gt;</b>
+
+    %ReturnType% <input name="Return" value="err"/>
+    <b> = </b><input name="ReturnValue" value="0"/><b>;...</b><br/>
+    Args: <input name="Args" value=""/>
+    <input type="checkbox" name="is_Args" value="no" unchecked="checked">no</input><b>, </b>
+    StdArgs: <input name="StdArgs" value="argc, argv, env"/>
+    <input type="checkbox" name="is_StdArgs" value="no" unchecked="checked">no</input>
     <br/>
-    <b>&lt;/form&gt;</b>
+    <b>...}</b>
+    <br/>
+
+    <b>virtual </b><input name="SetReturnType" value="int"/>
+    <input name="Set" value="set"/>
+    <input type="checkbox" name="is_Set" value="no" unchecked="checked">no</input>
+    <input name="SetWhich" value="this"/>
+    <input type="checkbox" name="is_SetWhich" value="no" unchecked="checked">no</input>
+    <b>_</b><input name="SetRun" value="run"/>
+    <input type="checkbox" name="is_SetRun" value="no" unchecked="checked">no</input>
+    <br/>
+
+    <b>(</b>Params: <input name="SetParams" value=""/>
+    <input type="checkbox" name="is_SetParams" value="no" unchecked="checked">no</input><b>, </b>
+    StdParams: <input name="SetStdParams" value="int argc, char_t** argv, char_t** env"/>
+    <input type="checkbox" name="is_SetStdParams" value="no" unchecked="checked">no</input><b>) {</b>
+    <br/>
+
+    %ReturnType% <input name="SetReturn" value="err"/>
+    <b> = </b><input name="SetReturnValue" value="0"/><b>;...</b><br/>
+    Args: <input name="SetArgs" value=""/>
+    <input type="checkbox" name="is_SetArgs" value="no" unchecked="checked">no</input><b>, </b>
+    StdArgs: <input name="SetStdArgs" value="argc, argv, env"/>
+    <input type="checkbox" name="is_SetStdArgs" value="no" unchecked="checked">no</input>
+    <br/>
+    <b>...}</b>
+    <br/>
+
+    <b>virtual ...</b>
+    <input name="Unset" value="unset"/>
+    <input type="checkbox" name="is_Unset" value="no" checked="checked">no</input>
+    <b>...(...) {</b>
+    <br/>
+    <b>...}</b>
+    <br/>
+
+    <b>...} /// class main...</b>
     <br/>
 
     <br/>
@@ -133,7 +155,7 @@
     </select>
     <br/>
     Action: <select name="FormAction">
-    <option value="/ludditiande/templates/t/html/html.t">.html file (/ludditiande/templates/t/html/html.t)</option>
+    <option value="/ludditiande/templates/t/cxx/xos-app-console-main-which-run-hpp.t">c++ main run .hpp file (/ludditiande/templates/t/cxx/xos-app-console-main-which-run-hpp.t)</option>
     <option value=""></option>
     <option value="/ludditiande/templates/t/t/parameters.t">t parameters &nbsp;&nbsp; (/ludditiande/templates/t/t/parameters.t)</option>
     <option value="/ludditiande/templates/t/t/functions.t">t functions &nbsp;&nbsp; (/ludditiande/templates/t/t/functions.t)</option>

@@ -29,6 +29,54 @@
 %Makefile,%(%else-then(%if-no(%is_makefile%,,%(%Makefile%)%)%,%(%if-no(%is_makefile%,,%(%makefile%)%)%)%)%)%,%
 %MAKEFILE,%(%else-then(%MAKEFILE%,%(%toupper(%Makefile%)%)%)%)%,%
 %makefile,%(%else-then(%_makefile%,%(%tolower(%Makefile%)%)%)%)%,%
+%is_specific,%(%else-then(%is_specific%,%(%is_Specific%)%)%)%,%
+%specific,%(%else-then(%if-no(%is_specific%,,%(%specific%)%)%,%(%if-no(%is_specific%,,%(build specific)%)%)%)%)%,%
+%Specific,%(%else-then(%if-no(%is_specific%,,%(%Specific%)%)%,%(%if-no(%is_specific%,,%(%specific%)%)%)%)%)%,%
+%SPECIFIC,%(%else-then(%SPECIFIC%,%(%toupper(%Specific%)%)%)%)%,%
+%specific,%(%else-then(%_specific%,%(%tolower(%Specific%)%)%)%)%,%
+%is_framework,%(%else-then(%is_framework%,%(%is_Framework%)%)%)%,%
+%framework,%(%else-then(%if-no(%is_framework%%Framework%,,%(%framework%)%)%,%(%if-no(%is_framework%%Framework%,,%(framework)%)%)%)%)%,%
+%Framework,%(%else-then(%if-no(%is_framework%%Framework%,,%(%Framework%)%)%,%(%if-no(%is_framework%%Framework%,,%(%framework%)%)%)%)%)%,%
+%FRAMEWORK,%(%else-then(%FRAMEWORK%,%(%toupper(%Framework%)%)%)%)%,%
+%framework,%(%else-then(%_framework%,%(%tolower(%Framework%)%)%)%)%,%
 %%(%
 %%include(%Include_path%/file-Makefile.t)%%
+%
+#
+# build HOME
+#
+ifndef BUILD_HOME
+ifdef PKG
+BUILD_HOME = $(PKG)/../..
+else
+BUILD_HOME = $(HOME)
+endif
+endif
+
+#
+# build UNAME
+#
+ifndef UNAME
+UNAME = $(shell uname)
+endif
+
+#
+# build OS
+#
+ifndef OS
+ifneq ($(UNAME),Darwin)
+OS = linux
+else
+OS = macosx
+endif
+endif
+
+#
+# install directory
+#
+ifndef INS
+INS = $(BUILD_HOME)/build/%Framework%
+endif
+
+%
 %)%)%

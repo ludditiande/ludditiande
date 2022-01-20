@@ -80,17 +80,24 @@
     <br/>
 
     <br/>
-    Organization: <input name="Organization" value=""></input>[$organization$]
-    <input type="checkbox" name="is_Organization" value="no" unchecked="checked">no</input>
-    <br/>
-    Author: <input name="Author" value=""></input>[$author$]
-    <input type="checkbox" name="is_Author" value="no" unchecked="checked">no</input>
-    <br/>
-    Date:<input name="Date" value=""/>[%date()%]<b></b>
-    <input type="checkbox" name="is_Date" value="no" unchecked="checked">no</input>
-    <br/>
-    Year:<input name="Year" value=""/>[%year()%]<b></b>
+    Copyright:<input name="Genesis" size="10" value=""/>[1988]<b></b>
+    <input type="checkbox" name="is_Genesis" value="no" unchecked="checked">no</input>
+    <b>-</b><input name="Year" size="10" value=""/>[%year()%]<b></b>
     <input type="checkbox" name="is_Year" value="no" unchecked="checked">no</input>
+    <b>&nbsp;&nbsp;</b>Organization:<input name="Organization" value=""></input>[$organization$]
+    <input type="checkbox" name="is_Organization" value="no" unchecked="checked">no</input>
+    <input type="checkbox" name="is_Copyright" value="no" unchecked="checked">no</input>
+    <br/>
+    Author:<input name="Author" value=""></input>[$author$]
+    <input type="checkbox" name="is_Author" value="no" unchecked="checked">no</input>
+    <b>&nbsp;&nbsp;</b>Date:<input name="Date" size="10" value=""/>[%date()%]<b></b>
+    <input type="checkbox" name="is_Date" value="no" unchecked="checked">no</input>
+    <b>&nbsp;&nbsp;</b><select name="Claims">
+    <option value=""></option>
+    <option value="as_is">``as is''</option>
+    <option value=""></option>
+    </select>[``as is'']
+    <input type="checkbox" name="is_Claims" value="no" unchecked="checked">no</input>
     <br/>
 
     <br/>

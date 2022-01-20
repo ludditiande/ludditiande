@@ -25,12 +25,12 @@
 %INCLUDE_PATH,%(%else-then(%INCLUDE_PATH%,%(%toupper(%Include_path%)%)%)%)%,%
 %include_path,%(%else-then(%_include_path%,%(%tolower(%Include_path%)%)%)%)%,%
 %is_os,%(%else-then(%is_os%,%(%is_Os%)%)%)%,%
-%os,%(%else-then(%if-no(%is_os%,,%(%os%)%)%,%(%if-no(%is_os%,,%(os)%)%)%)%)%,%
+%os,%(%else-then(%if-no(%is_os%,,%(%os%)%)%,%(%if-no(%is_os%,,%(Linux)%)%)%)%)%,%
 %Os,%(%else-then(%if-no(%is_os%,,%(%Os%)%)%,%(%if-no(%is_os%,,%(%os%)%)%)%)%)%,%
 %OS,%(%else-then(%OS%,%(%toupper(%Os%)%)%)%)%,%
 %os,%(%else-then(%_os%,%(%tolower(%Os%)%)%)%)%,%
 %is_specific,%(%else-then(%is_specific%,%(%is_Specific%)%)%)%,%
-%specific,%(%else-then(%if-no(%is_specific%,,%(%specific%)%)%,%(%if-no(%is_specific%,,%(%if-then(%os%, specific)%)%)%)%)%)%,%
+%specific,%(%else-then(%if-no(%is_specific%,,%(%specific%)%)%,%(%if-no(%is_specific%,,%(%if-then(%else-then(%os%,os)%, specific)%)%)%)%)%)%,%
 %Specific,%(%else-then(%if-no(%is_specific%,,%(%Specific%)%)%,%(%if-no(%is_specific%,,%(%specific%)%)%)%)%)%,%
 %SPECIFIC,%(%else-then(%SPECIFIC%,%(%toupper(%Specific%)%)%)%)%,%
 %specific,%(%else-then(%_specific%,%(%tolower(%Specific%)%)%)%)%,%
@@ -39,11 +39,6 @@
 %Framework,%(%else-then(%if-no(%is_framework%,,%(%Framework%)%)%,%(%if-no(%is_framework%,,%(%framework%)%)%)%)%)%,%
 %FRAMEWORK,%(%else-then(%FRAMEWORK%,%(%toupper(%Framework%)%)%)%)%,%
 %framework,%(%else-then(%_framework%,%(%tolower(%Framework%)%)%)%)%,%
-%is_depends,%(%else-then(%is_depends%,%(%is_Depends%)%)%)%,%
-%depends,%(%else-then(%if-no(%is_depends%,,%(%depends%)%)%,%(%if-no(%is_depends%,,%(depends)%)%)%)%)%,%
-%Depends,%(%else-then(%if-no(%is_depends%,,%(%Depends%)%)%,%(%if-no(%is_depends%,,%(%depends%)%)%)%)%)%,%
-%DEPENDS,%(%else-then(%DEPENDS%,%(%toupper(%Depends%)%)%)%)%,%
-%depends,%(%else-then(%_depends%,%(%tolower(%Depends%)%)%)%)%,%
 %%(%
 %%include(%Include_path%/file-Makefile.t)%%
 %

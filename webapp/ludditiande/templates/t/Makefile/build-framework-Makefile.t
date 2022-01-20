@@ -29,6 +29,16 @@
 %Specific,%(%else-then(%if-no(%is_specific%,,%(%Specific%)%)%,%(%if-no(%is_specific%,,%(%specific%)%)%)%)%)%,%
 %SPECIFIC,%(%else-then(%SPECIFIC%,%(%toupper(%Specific%)%)%)%)%,%
 %specific,%(%else-then(%_specific%,%(%tolower(%Specific%)%)%)%)%,%
+%is_framework,%(%else-then(%is_framework%,%(%is_Framework%)%)%)%,%
+%framework,%(%else-then(%if-no(%is_framework%%Framework%,,%(%framework%)%)%,%(%if-no(%is_framework%%Framework%,,%(framework)%)%)%)%)%,%
+%Framework,%(%else-then(%if-no(%is_framework%%Framework%,,%(%Framework%)%)%,%(%if-no(%is_framework%%Framework%,,%(%framework%)%)%)%)%)%,%
+%FRAMEWORK,%(%else-then(%FRAMEWORK%,%(%toupper(%Framework%)%)%)%)%,%
+%framework,%(%else-then(%_framework%,%(%tolower(%Framework%)%)%)%)%,%
+%is_depends,%(%else-then(%is_depends%,%(%is_Depends%)%)%)%,%
+%depends,%(%else-then(%if-no(%is_depends%%Depends%,,%(%depends%)%)%,%(%if-no(%is_depends%%Depends%,,%(depends)%)%)%)%)%,%
+%Depends,%(%else-then(%if-no(%is_depends%%Depends%,,%(%Depends%)%)%,%(%if-no(%is_depends%%Depends%,,%(%depends%)%)%)%)%)%,%
+%DEPENDS,%(%else-then(%DEPENDS%,%(%toupper(%Depends%)%)%)%)%,%
+%depends,%(%else-then(%_depends%,%(%tolower(%Depends%)%)%)%)%,%
 %%(%
 %%include(%Include_path%/file-Makefile.t)%%
 %%include(%Include_path%/build-framework-depends-Makefile.t)%%

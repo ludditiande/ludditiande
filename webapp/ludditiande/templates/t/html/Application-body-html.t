@@ -61,26 +61,26 @@
          =====================================================================
          === menubar
          =====================================================================
-         --
+         -->
          <div id="includeMenubar" include="%ApplicationPart%-menubar.html">
          <script>includeHTML('includeMenubar');</script>
-         </div-->
+         </div>
 
          <!--
          =====================================================================
          === form
          =====================================================================
-         --
+         -->
          <div id="includeForm" include="%ApplicationPart%-form.html">
          <script>includeHTML('includeForm');</script>
-         </div-->
+         </div>
 
          <!--
          =====================================================================
          === footer
          =====================================================================
-         --
-         <div id="includeFooter" include="%Application%-footer.html">
+         -->
+         <!--div id="includeFooter" include="%Application%-footer.html">
          <script>includeHTML('includeFooter');</script>
          </div-->
 %

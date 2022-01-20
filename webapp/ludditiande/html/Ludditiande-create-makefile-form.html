@@ -32,7 +32,7 @@
  onSubmit="return setFormSubmit(getFormValue2('FormTemplate','FormAction','Form'),getFormValue('FormMethod','Form'),'Form')">
     <div class="form">
 
-    File: <input name="File" value=""></input>[{ Makefile | Makedefines | Makedirs }]
+    File: <input name="File" value=""></input>[{ Makefile | Makedefines | Makerules | Makedirs }]
     <input type="radio" name="Extension" value="makefile" unchecked="checked">.makefile</input>
     <input type="radio" name="Extension" value="make" unchecked="checked">.make</input>
     <input type="radio" name="Extension" value="mak" unchecked="checked">.mak</input>
@@ -77,26 +77,32 @@
     </br>
     Framework: <input name="Framework" value=""/>[framework]
     <input name="is_Framework" value="no" type="checkbox" unchecked="checked">no</input>
-    <br/>
     Depends: <input name="Depends" value=""/>[depends]
     <input name="is_Depends" value="no" type="checkbox" checked="checked">no</input>
     <br/>
     Target: <input name="Target" value=""/>[%Framework%]
     <input name="is_Target" value="no" type="checkbox" unchecked="checked">no</input>
     <br/>
+    <b>namespace </b><input name="Target_namespace" value=""></input>[<input name="Source_framework" value=""></input>[%Framework%]<b></b>
+    <b></b><input type="checkbox" name="is_Source_framework" value="no" unchecked="checked">no</input> /{ lib/%Framework% | app/console/%Framework% }]<b></b>
+    <b></b><input type="checkbox" name="is_Target_namespace" value="no" unchecked="checked">no</input> <b>{...}</b>
+    <br/>
+    <b>class </b><input name="Target_class" value=""></input>[{ version | main }]<b></b>
+    <b></b><input type="checkbox" name="is_Target_class" value="no" unchecked="checked">no</input> <b>{...}</b>
+    <br/>
 
-    </br>
+    <br/>
     Source: <select name="Source">
-        <option value="source" selected="selected">source</option>
-        <option value="src">src</option>
-        <option value=""></option>
+    <option value="source" selected="selected">source</option>
+    <option value="src">src</option>
+    <option value=""></option>
     </select>[source]
     <input name="is_Source" value="no" type="checkbox" unchecked="checked">no</input>
     <br/>
     Include: <select name="Include">
-        <option value="include">include</option>
-        <option value="inc">inc</option>
-        <option value=""></option>
+    <option value="include">include</option>
+    <option value="inc">inc</option>
+    <option value=""></option>
     </select>[include]
     <input name="is_Include" value="no" type="checkbox" unchecked="checked">no</input>
     <br/>
@@ -105,35 +111,37 @@
     <option value="Linux">Linux</option>
     <option value="MacOSX">MacOSX</option>
     <option value="Windows">Windows</option>
-    </select>[os] <input type="checkbox" name="is_Os" value="no" unchecked="yes"/>no<br/>
+    </select>[Linux] <input type="checkbox" name="is_Os" value="no" checked="yes"/>no<br/>
     Uname: <input name="Uname" value=""/><select name="Uname_select">
     <option value=""></option>
     <option value="Linux">Linux</option>
     <option value="Darwin">MacOSX</option>
     <option value="Windows">Windows</option>
-    </select>[$(shell uname)] <input type="checkbox" name="is_Os" value="no" unchecked="yes"/>no<br/>
+    </select>[$(shell uname)] <input type="checkbox" name="is_Os" value="no" unchecked="yes"/>no
+    <br/>
 
     <br/>
-    Version: <input name="Version_major" value="0"/>
+    Version: <input name="Version_major" value="0" size="10"/>
     <select name="Version_major_separator">
     <option value="." selected="selected">.</option>
     <option value="-">-</option>
     <option value="_">_</option>
     </select>
-    <input name="Version_minor" value="0"/>
+    <input name="Version_minor" value="0" size="10"/>
+    <input name="is_Version_minor" value="no" type="checkbox" unchecked="checked">no</input>
     <select name="Version_minor_separator">
     <option value="." selected="selected">.</option>
     <option value="-">-</option>
     <option value="_">_</option>
     </select>
-    <input name="Version_release" value="0"/>
+    <input name="Version_release" value="0" size="10"/>
     <input name="is_Version_release" value="no" type="checkbox" unchecked="checked">no</input>
     <select name="Version_release_separator">
     <option value=".">.</option>
     <option value="-" selected="selected">-</option>
     <option value="_">_</option>
     </select>
-    <input name="Version_build" value="0"/>
+    <input name="Version_build" value="0" size="10"/>
     <input name="is_Version_build" value="no" type="checkbox" checked="checked">no</input>
     <input name="is_Version" value="no" type="checkbox" unchecked="checked">no</input>
     <br/>
@@ -150,19 +158,50 @@
     </select><b></b>
     <input type="checkbox" name="is_Compressed" value="no" unchecked="checked">no</input>
     <br/>
+    Depends: <input name="Depends_version_major" value="0" size="10"/>
+    <select name="Depends_version_major_separator">
+    <option value="." selected="selected">.</option>
+    <option value="-">-</option>
+    <option value="_">_</option>
+    </select>
+    <input name="Depends_version_minor" value="0" size="10"/>
+    <input name="is_Depends_version_minor" value="no" type="checkbox" unchecked="checked">no</input>
+    <select name="Depends_version_minor_separator">
+    <option value="." selected="selected">.</option>
+    <option value="-">-</option>
+    <option value="_">_</option>
+    </select>
+    <input name="Depends_version_release" value="0" size="10"/>
+    <input name="is_Depends_version_release" value="no" type="checkbox" unchecked="checked">no</input>
+    <select name="Depends_version_release_separator">
+    <option value=".">.</option>
+    <option value="-" selected="selected">-</option>
+    <option value="_">_</option>
+    </select>
+    <input name="Depends_version_build" value="0" size="10"/>
+    <input name="is_Depends_version_build" value="no" type="checkbox" checked="checked">no</input>
+    <input name="is_Depends_version" value="no" type="checkbox" unchecked="checked">no</input>
+    <br/>
 
     <br/>
-    Organization:<input name="Organization" value=""></input>[$organization$]
+    Copyright:<input name="Genesis" size="10" value=""/>[1988]<b></b>
+    <input type="checkbox" name="is_Genesis" value="no" unchecked="checked">no</input>
+    <b>-</b><input name="Year" size="10" value=""/>[%year()%]<b></b>
+    <input type="checkbox" name="is_Year" value="no" unchecked="checked">no</input>
+    <b>&nbsp;&nbsp;</b>Organization:<input name="Organization" value=""></input>[$organization$]
     <input type="checkbox" name="is_Organization" value="no" unchecked="checked">no</input>
+    <input type="checkbox" name="is_Copyright" value="no" unchecked="checked">no</input>
     <br/>
     Author:<input name="Author" value=""></input>[$author$]
     <input type="checkbox" name="is_Author" value="no" unchecked="checked">no</input>
-    <br/>
-    Date:<input name="Date" value=""/>[%date()%]<b></b>
+    <b>&nbsp;&nbsp;</b>Date:<input name="Date" size="10" value=""/>[%date()%]<b></b>
     <input type="checkbox" name="is_Date" value="no" unchecked="checked">no</input>
-    <br/>
-    Year:<input name="Year" value=""/>[%year()%]<b></b>
-    <input type="checkbox" name="is_Year" value="no" unchecked="checked">no</input>
+    <b>&nbsp;&nbsp;</b><select name="Claims">
+    <option value=""></option>
+    <option value="as_is">``as is''</option>
+    <option value=""></option>
+    </select>[``as is'']
+    <input type="checkbox" name="is_Claims" value="no" unchecked="checked">no</input>
     <br/>
 
     <br/>

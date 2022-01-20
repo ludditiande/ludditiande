@@ -49,8 +49,13 @@
 %TypeExtension,%(%else-then(%if-no(%is_typeextension%,,%(%TypeExtension%)%)%,%(%if-no(%is_typeextension%,,%(%typeextension%)%)%)%)%)%,%
 %TYPEEXTENSION,%(%else-then(%TYPEEXTENSION%,%(%toupper(%TypeExtension%)%)%)%)%,%
 %typeextension,%(%else-then(%_typeextension%,%(%tolower(%TypeExtension%)%)%)%)%,%
+%is_makefile,%(%else-then(%is_makefile%,%(%is_Makefile%)%)%)%,%
+%makefile,%(%else-then(%if-no(%is_makefile%,,%(%makefile%)%)%,%(%if-no(%is_makefile%,,%(Makefile)%)%)%)%)%,%
+%Makefile,%(%else-then(%if-no(%is_makefile%,,%(%Makefile%)%)%,%(%if-no(%is_makefile%,,%(%makefile%)%)%)%)%)%,%
+%MAKEFILE,%(%else-then(%MAKEFILE%,%(%toupper(%Makefile%)%)%)%)%,%
+%makefile,%(%else-then(%_makefile%,%(%tolower(%Makefile%)%)%)%)%,%
 %is_base,%(%else-then(%is_base%,%(%is_Base%)%)%)%,%
-%base,%(%else-then(%if-no(%is_base%,,%(%base%)%)%,%(%if-no(%is_base%,,%(%else-then(%filebase(%File%)%,Makefile)%)%)%)%)%)%,%
+%base,%(%else-then(%if-no(%is_base%,,%(%base%)%)%,%(%if-no(%is_base%,,%(%else-then(%filebase(%File%)%,%Makefile%)%)%)%)%)%)%,%
 %Base,%(%else-then(%if-no(%is_base%,,%(%Base%)%)%,%(%if-no(%is_base%,,%(%base%)%)%)%)%)%,%
 %BASE,%(%else-then(%BASE%,%(%toupper(%Base%)%)%)%)%,%
 %base,%(%else-then(%_base%,%(%tolower(%Base%)%)%)%)%,%
@@ -79,28 +84,28 @@
 %Framework,%(%else-then(%if-no(%is_framework%,,%(%Framework%)%)%,%(%if-no(%is_framework%,,%(%framework%)%)%)%)%)%,%
 %FRAMEWORK,%(%else-then(%FRAMEWORK%,%(%toupper(%Framework%)%)%)%)%,%
 %framework,%(%else-then(%_framework%,%(%tolower(%Framework%)%)%)%)%,%
-%is_lib,%(%else-then(%is_lib%,%(%is_Lib%)%)%)%,%
-%lib,%(%else-then(%if-no(%is_lib%,,%(%lib%)%)%,%(%if-no(%is_lib%,,%()%)%)%)%)%,%
-%Lib,%(%else-then(%if-no(%is_lib%,,%(%Lib%)%)%,%(%if-no(%is_lib%,,%(%lib%)%)%)%)%)%,%
-%LIB,%(%else-then(%LIB%,%(%toupper(%Lib%)%)%)%)%,%
-%lib,%(%else-then(%_lib%,%(%tolower(%Lib%)%)%)%)%,%
-%is_slib,%(%else-then(%is_slib%,%(%is_SLib%)%)%)%,%
-%slib,%(%else-then(%if-no(%is_slib%,,%(%slib%)%)%,%(%if-no(%is_slib%,,%()%)%)%)%)%,%
-%SLib,%(%else-then(%if-no(%is_slib%,,%(%SLib%)%)%,%(%if-no(%is_slib%,,%(%slib%)%)%)%)%)%,%
-%SLIB,%(%else-then(%SLIB%,%(%toupper(%SLib%)%)%)%)%,%
-%slib,%(%else-then(%_slib%,%(%tolower(%SLib%)%)%)%)%,%
-%is_exe,%(%else-then(%is_exe%,%(%is_Exe%)%)%)%,%
-%exe,%(%else-then(%if-no(%is_exe%,,%(%exe%)%)%,%(%if-no(%is_exe%,,%()%)%)%)%)%,%
-%Exe,%(%else-then(%if-no(%is_exe%,,%(%Exe%)%)%,%(%if-no(%is_exe%,,%(%exe%)%)%)%)%)%,%
-%EXE,%(%else-then(%EXE%,%(%toupper(%Exe%)%)%)%)%,%
-%exe,%(%else-then(%_exe%,%(%tolower(%Exe%)%)%)%)%,%
 %is_kmod,%(%else-then(%is_kmod%,%(%is_Kmod%)%)%)%,%
 %kmod,%(%else-then(%if-no(%is_kmod%,,%(%kmod%)%)%,%(%if-no(%is_kmod%,,%()%)%)%)%)%,%
 %Kmod,%(%else-then(%if-no(%is_kmod%,,%(%Kmod%)%)%,%(%if-no(%is_kmod%,,%(%kmod%)%)%)%)%)%,%
 %KMOD,%(%else-then(%KMOD%,%(%toupper(%Kmod%)%)%)%)%,%
 %kmod,%(%else-then(%_kmod%,%(%tolower(%Kmod%)%)%)%)%,%
+%is_slib,%(%else-then(%is_slib%,%(%is_SLib%)%)%)%,%
+%slib,%(%else-then(%if-no(%is_slib%,,%(%slib%)%)%,%(%if-no(%is_slib%,,%()%)%)%)%)%,%
+%SLib,%(%else-then(%if-no(%is_slib%,,%(%SLib%)%)%,%(%if-no(%is_slib%,,%(%slib%)%)%)%)%)%,%
+%SLIB,%(%else-then(%SLIB%,%(%toupper(%SLib%)%)%)%)%,%
+%slib,%(%else-then(%_slib%,%(%tolower(%SLib%)%)%)%)%,%
+%is_lib,%(%else-then(%is_lib%,%(%is_Lib%)%)%)%,%
+%lib,%(%else-then(%if-no(%is_lib%,,%(%lib%)%)%,%(%if-no(%is_lib%,,%()%)%)%)%)%,%
+%Lib,%(%else-then(%if-no(%is_lib%,,%(%Lib%)%)%,%(%if-no(%is_lib%,,%(%lib%)%)%)%)%)%,%
+%LIB,%(%else-then(%LIB%,%(%toupper(%Lib%)%)%)%)%,%
+%lib,%(%else-then(%_lib%,%(%tolower(%Lib%)%)%)%)%,%
+%is_exe,%(%else-then(%is_exe%,%(%is_Exe%)%)%)%,%
+%exe,%(%else-then(%if-no(%is_exe%,,%(%exe%)%)%,%(%if-no(%is_exe%,,%()%)%)%)%)%,%
+%Exe,%(%else-then(%if-no(%is_exe%,,%(%Exe%)%)%,%(%if-no(%is_exe%,,%(%exe%)%)%)%)%)%,%
+%EXE,%(%else-then(%EXE%,%(%toupper(%Exe%)%)%)%)%,%
+%exe,%(%else-then(%_exe%,%(%tolower(%Exe%)%)%)%)%,%
 %is_executable,%(%else-then(%is_executable%,%(%is_Executable%)%)%)%,%
-%executable,%(%else-then(%if-no(%is_executable%,,%(%executable%)%)%,%(%if-no(%is_executable%,,%()%)%)%)%)%,%
+%executable,%(%else-then(%if-no(%is_executable%,,%(%executable%)%)%,%(%if-no(%is_executable%,,%(%Output%)%)%)%)%)%,%
 %Executable,%(%else-then(%if-no(%is_executable%,,%(%Executable%)%)%,%(%if-no(%is_executable%,,%(%executable%)%)%)%)%)%,%
 %EXECUTABLE,%(%else-then(%EXECUTABLE%,%(%toupper(%Executable%)%)%)%)%,%
 %executable,%(%else-then(%_executable%,%(%tolower(%Executable%)%)%)%)%,%
@@ -109,16 +114,17 @@
 %Target,%(%else-then(%if-no(%is_target%,,%(%Target%)%)%,%(%if-no(%is_target%,,%(%target%)%)%)%)%)%,%
 %TARGET,%(%else-then(%TARGET%,%(%toupper(%Target%)%)%)%)%,%
 %target,%(%else-then(%_target%,%(%tolower(%Target%)%)%)%)%,%
-%is_makefile,%(%else-then(%is_makefile%,%(%is_Makefile%)%)%)%,%
-%makefile,%(%else-then(%if-no(%is_makefile%,,%(%makefile%)%)%,%(%if-no(%is_makefile%,,%(Makefile)%)%)%)%)%,%
-%Makefile,%(%else-then(%if-no(%is_makefile%,,%(%Makefile%)%)%,%(%if-no(%is_makefile%,,%(%makefile%)%)%)%)%)%,%
-%MAKEFILE,%(%else-then(%MAKEFILE%,%(%toupper(%Makefile%)%)%)%)%,%
-%makefile,%(%else-then(%_makefile%,%(%tolower(%Makefile%)%)%)%)%,%
-%title,%(%else-then(%title%,%(%if-then(%Specific%, )%%Makefile%%then-if(%then-if(%Framework%,framework )%%then-if(%Executable%, )%%then-if(%Target%, )%, for )%)%)%)%,%
+%is_libtarget,%(%else-then(%is_libtarget%,%(%is_LibTarget%)%)%)%,%
+%libtarget,%(%else-then(%if-no(%is_libtarget%,,%(%libtarget%)%)%,%(%if-no(%is_libtarget%,,%(%kmod%%slib%%lib%%Target%)%)%)%)%)%,%
+%LibTarget,%(%else-then(%if-no(%is_libtarget%,,%(%LibTarget%)%)%,%(%if-no(%is_libtarget%,,%(%libtarget%)%)%)%)%)%,%
+%LIBTARGET,%(%else-then(%LIBTARGET%,%(%toupper(%LibTarget%)%)%)%)%,%
+%libtarget,%(%else-then(%_libtarget%,%(%tolower(%LibTarget%)%)%)%)%,%
+%title,%(%else-then(%title%,%(%if-then(%Specific%, )%%Makefile%%then-if(%then-if(%Framework%,framework )%%then-if(%Executable%, )%%then-if(%LibTarget%, )%, for )%)%)%)%,%
 %Title,%(%else-then(%Title%,%(%title%)%)%)%,%
 %TITLE,%(%else-then(%TITLE%,%(%toupper(%Title%)%)%)%)%,%
 %title,%(%else-then(%_Title%,%(%tolower(%Title%)%)%)%)%,%
-%%(########################################################################
+%%(%
+%########################################################################
 # Copyright (c) %Genesis%-%Year% %Organization%
 #
 # This software is provided by the author and contributors ``as is''
@@ -141,4 +147,5 @@
 # %Title%)%)%
 ########################################################################
 %then-if(%if-then(%if-no(%is_Depends%,,%(%Depends%)%)%,%(
-)%)%,%(# Depends: )%)%)%)%
+)%)%,%(# Depends: )%)%%
+%)%)%
